@@ -14,12 +14,28 @@ def lcs(s1,s2):
             else:
                 #take max( leave either current element from s1 or leave current element of s2 )
                 dp[i][j]=max(dp[i-1][j],dp[i][j-1])
-    print(dp)
-    print('max lcs',dp[-1][-1])
-                
+    # print(dp)
+    # print('max lcs',dp[-1][-1])
+    return dp[-1][-1]       
 
-lcs("abcde","abcd")
+print(lcs("geek","ek"))
+
+def lcsPrint(A, B):
+            n, m = len(A), len(B)
+            dp = [["" for _ in range(m + 1)] for _ in range(n + 1)]
+            for i in range(n):
+                for j in range(m):
+                    if A[i] == B[j]:
+                        dp[i + 1][j + 1] = dp[i][j] + A[i]
+                        
+                    else:
+                        dp[i + 1][j + 1] = max(dp[i + 1][j], dp[i][j + 1], key=len)
+            # print(dp)
+            return dp[-1][-1]        
+
+print(lcsPrint("geek","ek"))
 
 
-#leetcode problems on same problem
+
+#leetcode problems based on this problem
 #1. Uncrossed line

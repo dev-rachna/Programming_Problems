@@ -14,7 +14,7 @@ v
 
 '''
 #Check if there exits a subset that has given sum
-def subsetSum(s):
+def subsetSum(arr,s):
     dp=[[False for i in range(s+1)] for _ in range(len(arr)+1)]
     
     #initialize col 0 with 1
@@ -33,7 +33,7 @@ def subsetSum(s):
     
 
 #Count no. of subsets with given sum
-def countSubsetSum(s):
+def countSubsetSum(arr,s):
     dp=[[0 for i in range(s+1)] for _ in range(len(arr)+1)]
     
     for i in range(0,len(arr)+1):
@@ -48,16 +48,17 @@ def countSubsetSum(s):
                 dp[i][j]=dp[i-1][j]
     
     print(dp[-1][-1])
+    return dp[-1][-1]
     
 # 416. Partition Equal Subset Sum leetcode
-def canPartition(s):
+def canPartition(arr,s):
     if s%2==0:
         
         s=s//2
         return subsetSum(s)
         
     
-subsetSum(s)
-countSubsetSum(s)
-canPartition(s)
+subsetSum(arr,s)
+countSubsetSum(arr,s)
+canPartition(arr,s)
     

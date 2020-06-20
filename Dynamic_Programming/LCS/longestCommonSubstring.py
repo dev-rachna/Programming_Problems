@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
 
-
-
-
-
 def lcsubstring(s1,s2):
     
     dp=[x[:] for x in [[0]*(len(s1)+1)]*(len(s2)+1)]
@@ -15,7 +11,7 @@ def lcsubstring(s1,s2):
             else:
                 dp[i][j]=0
     
-    print(dp)
+    return(dp[-1][-1])
 
 lcsubstring("abc","a")
 
