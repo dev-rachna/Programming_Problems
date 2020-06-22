@@ -14,7 +14,17 @@ def coinChangeCount(coin,amt):
             else:
                 dp[i][j]=dp[i-1][j]
     print(dp[-1][-1])
- 
+
+#1d array dp (thecodingworld)
+def coinChangeCount2(coin,amt): 
+    dp=[0 for i in range(amt+1)]
+    dp[0]=1
+    for i in coin:
+        for j in range(i,amt+1):
+            if i<=j:
+                dp[j]+=dp[j-i]
+    print(dp[-1])
+    
 
 def minimumCoins(coins,amount):    
     dp=[[0 for i in range(amount+1)] for _ in range(len(coins)+1)]
@@ -42,5 +52,5 @@ def minimumCoins(coins,amount):
     if dp[-1][-1]==float('inf'):
         return -1
     return (dp[-1][-1])
-print(minimumCoins([1,2,5],5))
-coinChangeCount([1,2,3],4)
+# print(minimumCoins([1,2,5],5))
+coinChangeCount2([1,2,3],4)

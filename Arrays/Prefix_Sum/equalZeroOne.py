@@ -9,8 +9,7 @@ def equalZeroOne(arr):
         if j==0:
             count-=1
         else:
-            count+=1
-            
+            count+=1            
         if count in counter:            
             maxi=max(maxi,i-counter[count])           
         else:
