@@ -29,7 +29,7 @@ def coinChangeCount2(coin,amt):
 def minimumCoins(coins,amount):    
     dp=[[0 for i in range(amount+1)] for _ in range(len(coins)+1)]
     
-    #if sum is zero you need infinite number of coins
+    #if coin is zero you need infinite number of coins to make that sum
     for i in range(amount+1):
             dp[0][i]=float('inf')
     
