@@ -4,6 +4,10 @@
 def findPivot(arr):   
     low=0
     high=len(arr)-1
+
+    if arr[low]<=arr[high]:
+        print(arr[low])
+        return 
     
     while low<=high:
         mid=(low+high)//2        

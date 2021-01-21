@@ -55,7 +55,7 @@ def canPartition(arr,s):
     if s%2==0:
         
         s=s//2
-        return subsetSum(s)
+        return subsetSum(arr,s)
         
     
 subsetSum(arr,s)

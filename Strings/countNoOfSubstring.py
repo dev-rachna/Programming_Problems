@@ -8,7 +8,7 @@ def countkDist(str1, k):
     res=0
     strings=[]
     n=len(str1)
-    j=0
+    # j=0
     for i in range(n):
         count=collections.defaultdict(int)
         dist=0

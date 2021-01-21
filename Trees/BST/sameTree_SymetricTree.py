@@ -43,8 +43,8 @@ def sameTree(root1,root2):
 def symetricTree(root1,root2):
     if root1 is None and root2 is None:
         return True
-    elif root1 is not none and root2 is not None and root1.val==root2.val:
-        return symetricTree(root1.left,root2.right) and symetricTree(root1.right,root.left)
+    elif root1 is not None and root2 is not None and root1.val==root2.val:
+        return symetricTree(root1.left,root2.right) and symetricTree(root1.right,root2.left)
     else:
         return False
     

@@ -21,27 +21,26 @@ def permutation(used):
 # print(res)
     
     
-#permutation with duplicates
-# res1=[]
-# arr1=[1,1,2]
-# temp=[]
-# for i in range(len(arr)):
-#     temp.append(False)
+# permutation with duplicates
+# mouna cs practice
+import collections
+res1=[]
+arr1=[1,1,2]
+counter=collections.Counter(arr1)
+temp=[]
     
-# def permutation2(used,temp):
-#     if len(used)==len(arr):
-#         res1.append(list(used))
-#         return
+def permutation2(used):
+    if len(used)==len(arr1):
+        res1.append(list(used))
+        return
     
-#     for i in range(len(arr1)):
-#         if temp[i] or (i>0 and arr1[i]==arr1[i-1] and not(temp[i-1])):
-            
-#             continue
-#         temp[i]=True
-#         used.append(arr1[i])
-#         permutation(used)
-#         temp[i]=False
-#         used.pop()
+    for i in counter:
+        if counter[i]>0:
+            used.append(i)
+            counter[i]-=1
+            permutation2(used)
+            counter[i]+=1
+            used.pop()
 
-# permutation2([],temp)    
-# print(res1)
+permutation2([])    
+print(res1)

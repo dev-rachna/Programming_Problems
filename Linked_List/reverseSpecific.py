@@ -28,12 +28,12 @@ def reverseSpecific(head,m,n):
     node=Node(0)
     node.next=head
     prev=node
-    for i in range(m-1):
+    for _ in range(m-1):
         prev=prev.next
     
     reverse=None
     curr=prev.next
-    for i in range(n-m+1):
+    for _ in range(n-m+1):
         next1=curr.next
         curr.next=reverse
         reverse=curr

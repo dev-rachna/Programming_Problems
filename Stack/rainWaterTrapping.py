@@ -1,0 +1,6 @@
+'''
+
+'''
+
+def fun(arr):
+    pass

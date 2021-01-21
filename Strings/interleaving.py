@@ -27,7 +27,7 @@ def interleaving(A,B,C):
     
     return True
         
-print(interleaving("AB","CD","ACDB"))
+print(interleaving("AAB","AXY","AABAXY"))
         
 
 

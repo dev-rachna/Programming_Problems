@@ -4,7 +4,6 @@
 leetcode 221. Maximal Square
 Given a 2D binary matrix filled with 0's and 1's, find the largest square containing only 1's and return its area
 '''
-
 def maximalSquare(matrix):
     
     dp=[[0 for i in range(len(matrix[0]))] for _ in range(len(matrix))]
