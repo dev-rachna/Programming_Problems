@@ -13,11 +13,11 @@ class minStack:
         self.min=float('inf')
         
     def push(self,val):
-        if len(self.stack)==0:
-            self.stack.append(val)
-            self.min=val
+        # if len(self.stack)==0:
+        #     self.stack.append(val)
+        #     self.min=val
 
-        elif self.stack and self.min>val:
+        if self.stack and self.min>val:
             self.stack.append(2*val-self.min)
             self.min=val
         else:
