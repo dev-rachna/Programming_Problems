@@ -40,7 +40,7 @@ def nextGreaterElementLeft(arr):
 
     for i in range(len(arr)):
         
-        while stack and arr[i]>stack[-1]:
+        while stack and arr[i]>=stack[-1]:
             stack.pop()
         
         if not(stack):

@@ -6,6 +6,7 @@ The span Si of the stock’s price on a given day i is defined as the maximum nu
 For example, if an array of 7 days prices is given as {100, 80, 60, 70, 60, 75, 85}, then the span values for corresponding 7 days are {1, 1, 1, 2, 1, 4, 6}
 
 '''
+#approach 1
 def fun(arr):
     stack=[]
     result=[]
@@ -26,4 +27,20 @@ def fun(arr):
     
     print(result)
 
-fun([100,80,60,70,60,75,85])
+#efficient approach
+#Finacial Problem in Dholokpur
+def fun2(arr):
+    st=[]
+    res=[]
+    for i in range(len(arr)):
+        #print(st)
+        while st and arr[st[-1]]<arr[i]:
+            st.pop()
+        if st:
+            res.append(i-st[-1])
+        else:
+            res.append(i+1)
+
+        st.append(i)
+    print(res)
+fun2([100,80,60,70,60,75,85])
