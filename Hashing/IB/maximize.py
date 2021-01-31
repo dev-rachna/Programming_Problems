@@ -24,4 +24,6 @@ def fun2(arr):
         last_occurance[arr[i]]=i
     if mini==float('inf'):
         return "all distinct ele"
+    
+    return mini
             

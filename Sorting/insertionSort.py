@@ -8,4 +8,4 @@ def insertionsort(A):
         A[pivot]=val
     print(A)
 
-insertionsort([9,4,3,1,18,35])
+insertionsort([9,-4,3,1,18,35])

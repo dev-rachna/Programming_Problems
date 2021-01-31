@@ -19,4 +19,5 @@ print(fun('aabfcade','cbfade'))
 #o/p:[5, 4, 2, 1, 3]
 
 def fun2(A,B):
+    #same as above
     pass

@@ -5,6 +5,7 @@ ex:
 i/p: [5,4,9,13]
 o/p: [9,9,13,-1]
 '''
+# approach 1
 def nextGreaterElement(arr):
     stack=[]
     result=[]
@@ -23,8 +24,27 @@ def nextGreaterElement(arr):
     result.reverse()
     print(result)
 
+# approach 2
+def nextGreaterElement2(arr):
+    stack=[]
+    result=[0 for i in arr]
+   
+   
+    for i in range(len(arr)-1,-1,-1):
+        
+        while stack and arr[i]>stack[-1]:
+            stack.pop()
+        
+        if len(stack)==0:
+            result[i]=-1
+        else:
+            result[i]=stack[-1]
+        stack.append(arr[i])
 
-nextGreaterElement([1,2,3,4])
+    #result.reverse()
+    print(result)
+
+nextGreaterElement2([1,2,3,4])
 
 
 '''

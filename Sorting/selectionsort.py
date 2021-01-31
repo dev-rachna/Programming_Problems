@@ -1,6 +1,4 @@
-
 def selectionSort(A):
-    end=len(A)-1
     ind=0
     for i in range(0,len(A)-2):
         ind=i
