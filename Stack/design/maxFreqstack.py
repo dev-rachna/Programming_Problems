@@ -39,5 +39,38 @@ The total number of FreqStack.pop calls will not exceed 10000 in a single test c
 The total number of FreqStack.push and FreqStack.pop calls will not exceed 150000 across all test cases.
 '''
 
-def fun():
-    pass
+import collections
+
+counter=collections.defaultdict(int)
+freqMap=collections.defaultdict(list)
+
+maxi=0
+
+def push(x):
+    counter[x]+=1
+    global maxi
+    maxi=max(counter[x],maxi)
+    freqMap[counter[x]].append(x)
+    # print(counter,freqMap)
+    
+
+def popStack():
+    global maxi
+    ele=freqMap[maxi].pop()
+    if len(freqMap[maxi])==0:
+        maxi-=1
+    counter[ele]-=1
+    return ele
+
+
+push(2)
+push(2)
+push(4)
+push(3)
+push(2)
+push(3)
+print(popStack())
+print(popStack())
+print(popStack())
+
+
