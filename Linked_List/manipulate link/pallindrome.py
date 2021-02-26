@@ -28,4 +28,4 @@ def fun(head):
         curr=curr.next 
         start=start.next
     
-    return "Pallindrome"
+    return "Pallindrom"
