@@ -1,0 +1,26 @@
+# Syntax
+.update({find query}, {update}, {options})
+
+# $set -replace or set value
+.update({name: 'rd'},
+        {$set: {
+            name: 'kd'
+        }}
+        )
+
+# $unset -deletes value
+.update({name:'rd'},
+{
+    $unset:{
+        name:1
+    }
+}
+)
+
+# update by defaults updates only 1st match
+
+# pass {multi:true} in options to update multiple doc
+.updateOne()--same as update
+.updateMany()---same 
+
+

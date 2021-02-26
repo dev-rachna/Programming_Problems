@@ -1,0 +1,79 @@
+# use practice
+
+db.getCollection('practice').find({})
+
+# equality
+db.getCollection('practice').find({type: 'PushEvent'})
+db.getCollection('practice').find(
+    {type: 'IssuesEvent', public: true})  # works as AND
+
+# opeartors works on all str,dt,num
+db.getCollection('practice').find({type: {$ne: "IssuesEvent"}})
+db.getCollection('practice').find({type: {$eq: "PushEvent"}})
+
+db.getCollection('practice').find({type: {$gt: "IssuesEvent"}})
+db.getCollection('practice').find({type: {$gte: "IssuesEvent"}})
+
+# starting with I>=
+db.getCollection('practice').find({type: {$gt: "I"}})
+
+db.getCollection('practice').find({type: {$lt: "IssuesEvent"})
+db.getCollection('practice').find({type: {$lt: "IssuesEvent"})
+
+# combo
+db.getCollection('practice').find({type: {$gte: "IssuesEvent", $lte: "PullRequestEvent"}})
+
+
+# in,nen
+db.getCollection('practice').find({type: {$in: ["IssuesEvent", "PullRequestEvent"]}})
+db.getCollection('practice').find({type: {$nin: ["IssuesEvent", "PullRequestEvent"]}})
+
+# and
+db.getCollection('practice').find({$and: [{type: "IssuesEvent", public: true}]})
+# 2nd one overwrites if same col
+db.getCollection('practice').find({$and: [{type: {$gte: "IssuesEvent"}}, {type: {$ne: "IssuesEvent"}}]})
+
+
+# or
+# if same col go for in else go for explicit or
+db.getCollection('practice').find({$or: [{type: "IssuesEvent"}, {type: "PullRequestEvent"}]})
+
+# nested doc same expect . and ""
+# if . used " " is mandatory
+db.getCollection('practice').find({"actor.login": "sheenaze"})
+
+
+# arrays
+# {arr_name:value} --Generic value , acts like includes
+# {"arr_name.index_postion_array":value} --value at specific index
+db.getCollection('movies').find({cast: "Harry Solter"}).count()
+db.getCollection('movies').find({"cast.0": "D. W. Griffith"})
+
+# $all
+# returns an array containing all specified element extra allowed
+db.getCollection('movies').find({cast: {$all: ["Edward Dillon", "D. W. Griffith"]}})
+# size - returns array having size specified
+db.getCollection('movies').find({cast: {$size: 2}})
+
+# doesnt work size need a number
+db.getCollection('movies').find({cast: {$size: {$gt: 1}}})
+
+#Not tested from here onwards
+
+#elematch--- looks for all cond to be satisfied by 1 doc
+.find({friends:{$elematch:[{name:"abc",age:24}]}})
+
+#exists-check if value exists or no
+.find({arr:{$exist:true}})
+.find({arr:{$exist:false}})
+
+#Filter feilds
+.find({query},{choose field})
+
+# id comes by default
+.find({age:24},{name:1,age:1}) --1:select 0:omit
+
+
+
+# 12 end
+# refer notes

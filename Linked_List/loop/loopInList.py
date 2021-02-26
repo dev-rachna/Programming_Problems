@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# edge self loop
 class Node:
     def __init__(self,val):
         self.val=val
@@ -43,10 +43,11 @@ class LinkedList:
             
             if slow==fast:
                 slow=self.head
-                while fast!=slow:
+                while fast!=slow: #fast.next!=slow.next remove loop
                     slow=slow.next
                     fast=fast.next
                 print(slow.val)
+                # fast.next=None remove loop
                 return
         print('No loop')
         return
