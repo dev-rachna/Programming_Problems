@@ -1,4 +1,4 @@
-
+# refer leetcode sol
 
 def fun(head):
   if head is None:

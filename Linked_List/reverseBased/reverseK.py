@@ -1,42 +1,46 @@
+def reverseKGroup(head, k):
+    """
+    :type head: ListNode
+    :type k: int
+    :rtype: ListNode
+    """
+    def reverse(head, k):
+        count = 0
+        curr = head
+        prev = None
+        next1 = None
+        while count < k:
+            next1 = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next1
+            count += 1
+        return prev
 
-def reverse(tail,k):
-  curr=tail
-  prev=None
-  next1=None
-  while curr:
-    next1=curr.next
-    curr.next=prev
-    prev=curr
-    curr=next1
-  head=prev
-  return head
+    dummy = ListNode(0)
 
+    prev = dummy
+    curr = head
+    tail = head
+    while curr:
+        tail = curr
+        count = 0
+        while count < k:
 
-def reverseSpecific(head,k):
-  if head is None:
-    return "empty"
-  
-  res=node(0)
-  res.next=head
-  prev=res
-  curr=head
-  
-  ind=0
-  while curr:
-    ind=0
-    tail=curr
-    for _ in range(k+1):
-      if curr:
-        curr=curr.next
-        ind+=1
-      else:
-        break
+            if curr:
+                # print(count,'c',curr.val)
+                curr = curr.next
 
-    if ind!=k:
-      prev.next=tail
-    else:
-      prev.next=reverse(tail,k)
-      prev=tail
-    
-  
-  return res.next
+            else:
+                break
+            count += 1
+        # if curr:
+        #     print(curr.val)
+        if count == k:
+            # print(tail.val,'tail')
+            prev.next = reverse(tail, k)
+            # print(prev.val)
+            prev = tail
+        else:
+            prev.next = tail
+    return dummy.next
